@@ -14,13 +14,13 @@ ActiveRecord::Schema.define(version: 2022_01_18_224439) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
-    t.string "str"
-    t.string "int"
-    t.string "wis"
-    t.string "dex"
-    t.string "chr"
-    t.string "lck"
-    t.string "vit"
+    t.integer "str"
+    t.integer "int"
+    t.integer "wis"
+    t.integer "dex"
+    t.integer "chr"
+    t.integer "lck"
+    t.integer "vit"
     t.integer "user_id"
   end
 
