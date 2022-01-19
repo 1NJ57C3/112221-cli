@@ -8,9 +8,8 @@
 # ! First thing the seed file needs to do?
 # DELETE ALL OF OUR DATA
 
-def create_rand_stats
-  rand(1..20)
-end
+# ! RANDOMNESS METHODS
+stats_arr = create_weighted_array(Array(1..20))
 
 puts "Emptying database..."
 User.delete_all
@@ -29,14 +28,69 @@ u8 = User.create(name: "Tyler")
 u9 = User.create(name: "Phil")
 
 puts "Creating Characters...."
-c1 = Character.create(name: "Lord Philington", str: create_rand_stats, int: create_rand_stats, wis: create_rand_stats, dex: create_rand_stats, chr: create_rand_stats, lck: create_rand_stats, vit: create_rand_stats, user_id: u9.id)
-c2 = Character.create(name: "Captain Stabbin", str: create_rand_stats, int: create_rand_stats, wis: create_rand_stats, dex: create_rand_stats, chr: create_rand_stats, lck: create_rand_stats, vit: create_rand_stats, user_id: u7.id)
-c3 = Character.create(name: "gods_lil_angel09578", str: create_rand_stats, int: create_rand_stats, wis: create_rand_stats, dex: create_rand_stats, chr: create_rand_stats, lck: create_rand_stats, vit: create_rand_stats, user_id: u5.id)
+c1 = Character.create(
+  name: "Lord Philington", 
+  str: stats_arr.sample, 
+  int: stats_arr.sample, 
+  wis: stats_arr.sample, 
+  dex: stats_arr.sample, 
+  chr: stats_arr.sample, 
+  lck: stats_arr.sample, 
+  vit: stats_arr.sample, 
+  user_id: u9.id
+)
+
+c2 = Character.create(
+  name: "Captain Stabbin", 
+  str: stats_arr.sample, 
+  int: stats_arr.sample, 
+  wis: stats_arr.sample, 
+  dex: stats_arr.sample, 
+  chr: stats_arr.sample, 
+  lck: stats_arr.sample, 
+  vit: stats_arr.sample, 
+  user_id: u7.id
+)
+
+c3 = Character.create(
+  name: "gods_lil_angel09578", 
+  str: stats_arr.sample, 
+  int: stats_arr.sample, 
+  wis: stats_arr.sample, 
+  dex: stats_arr.sample, 
+  chr: stats_arr.sample, 
+  lck: stats_arr.sample, 
+  vit: stats_arr.sample, 
+  user_id: u5.id
+)
 
 puts "Creating Equipment...."
-e1 = Equipment.create(item_name: "Royal Staff", stat: 3, positive: true, character_id: c1.id)
-e2 = Equipment.create(item_name: "Royal Garb", stat: 10, positive: false, character_id: c1.id)
-e3 = Equipment.create(item_name: "Pointy Dagger", stat: 7 , positive: false, character_id: c2.id)
-e4 = Equipment.create(item_name: "Hunter's Bow", stat: 5 , positive: true, character_id: c3.id)
+e1 = Equipment.create(
+  item_name: "Royal Staff", 
+  stat:equip_stats, 
+  positive: is_positive, 
+  character_id: c1.id
+)
+
+e2 = Equipment.create(
+  item_name: "Royal Garb", 
+  stat: equip_stats, 
+  positive: is_positive, 
+  character_id: c1.id
+)
+
+e3 = Equipment.create(
+  item_name: "Pointy Dagger", 
+  stat: equip_stats , 
+  positive: is_positive, 
+  character_id: c2.id
+)
+
+e4 = Equipment.create(
+  item_name: "Hunter's Bow", 
+  stat: equip_stats , 
+  positive: is_positive, 
+  character_id: c3.id
+)
 
 puts "DONE!"
